@@ -1,0 +1,142 @@
+Bowling Alley
+
+Write machine code for a single lane bowling alley system.
+
+One bowling game will be played by multiple players on a single lane. During the game,players and their scores will be maintained and shown by the system and winner will be declared at the end of the game.
+
+Some rules about bowling:
+A game consists of ten sets
+In each set,the player has two opportunities to knock down ten pins.
+The score for a set is the total number of pins knocked down,plus bonuses for strikes and spares.
+A spare is when the player knocks down all ten pins in two tries.If there is spare the player gets 5 bonus points.
+A strike is when the player knocks down all ten pins on his/her first try.If there is a strike the player gets 10 bonus points.
+In the final set a player who rolls a spare or a strike is allowed to roll the extra balls to complete the set. However only a maximum of three balls can be rolled in the final set.
+
+
+
+
+class Bowling {
+	vector<Player> players;
+  Player winner;
+  
+  Bowling(vector<Player> gameplayers) {
+		players = gameplayers;
+	}
+  
+  void displayScore() {
+  	 for(auto it: players) {
+				cout << "Id -> " << it.id << " Name -> " << it.name << " Score -> " << it.totalScore << endl;
+    	}
+  }
+  
+  void startGame() {
+  
+  
+  for(int sets=0;sets<10;sets++) {
+		for(int player=0; player<players.size(); player++) {
+      	for(int chance=1;chance<=2;chance++) {
+        		int input;
+						cin >> input;
+            if(input == "X") {
+            	player.pointScore(10, chance);
+            } else if(input == "/") {
+							player.pointScore(10 - player.lastChanceScore, chance);
+						} else {
+              player.pointScore(input, chance);
+            }
+      	}
+    }			
+  }
+  	
+		
+	}
+  
+};
+
+
+
+class Player {
+	int id;
+  string name;
+  int totalScore = 0;
+  int lastChanceScore;
+  bool isFinalSet;
+  
+  
+  void gotStrike() {
+  	totalScore += 10;
+  }
+  void gotSpare() {
+  	totalScore += 5;
+  }
+  
+  void pointScored(int pins, int chance) {
+  		
+      if(chance == 1) {
+      	if(pins == 10) {
+          // strike
+          gotStrike();
+        }
+        
+        lastChanceScore = pins;
+      } else if (chance == 2) {
+				if(pins + lastChancePins == 10) {
+        	gotSpare();
+				}
+    	}
+      totalScore += pins;
+  }
+  
+  
+  1st ->. strike (10)
+  2nd -> spare() / strike() /
+  
+  1st -> 0pins
+  2nd -> 10pins
+  
+  
+  
+
+  void pointScoredFinalSet(int pins, int chance) {
+    totalScore += pins;
+  	if(chance == 1) {
+    	if(pins == 10) {
+      	gotStrike();
+      }
+      lastChancePins = pins;
+    }
+     else if (chance == 2) {
+     		
+        
+     		if(lastChancePins == 10) {
+
+				} else {
+        
+        }
+     		
+				if(pins + lastChancePins == 10) {
+          if(lastChancePins == 10) {
+          	gotStrike();
+          } else if (lastChancePins == 0) {
+          	gotSpare();
+          }
+          else {
+          	gotSpare();
+          }
+				}
+    }
+  }
+  
+  
+};
+
+
+
+
+int main() {
+	Player naman = new player(...);
+  Player nipun = new Player(...);
+  
+  Bowling bowling = new Blowing([naman, nipun])
+  
+}
