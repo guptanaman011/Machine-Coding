@@ -47,5 +47,6 @@
         "__split_buffer": "cpp",
         "deque": "cpp",
         "list": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

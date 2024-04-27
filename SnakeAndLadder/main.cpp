@@ -150,6 +150,7 @@ class GameBoard {
 };
 
 int main() {
+    
     srand(time(0));
     Player p1("Naman", 1);
     Player p2("Nipun", 2);

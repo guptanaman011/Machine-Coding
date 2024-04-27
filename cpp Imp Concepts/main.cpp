@@ -127,3 +127,98 @@ auto now = chrono::system_clock::now();
             long endTime = static_cast<long>(currentTime);
 
 */
+
+
+
+/*
+
+HOW TO USE PRIORITY QUEUES WITH POINTERS
+
+#include <iostream>
+#include <map>
+#include <queue>
+
+using namespace std;
+
+struct comapare {
+    bool operator()(const char* a, const char *b) const {
+        return *a < *b;
+    }
+};
+
+int main() {
+    map<int, char*> mp;
+    priority_queue<char*, vector<char*>, comapare> pq;
+
+    char c1 = 'a';
+    char c2 = 'b';
+
+
+    mp.insert({1, &c1});
+    mp.insert({2, &c2});
+
+    pq.push(&c1);
+    pq.push(&c2);
+
+
+
+
+    cout << *pq.top() << endl;
+    cout << *mp[2] << endl;
+
+    // changing the value of c2;
+
+    cout << "After changing the value of c1 and c2" << endl;
+
+    c2 = 'z';
+    c1 = 'x';
+
+    cout << *pq.top() << endl;
+    cout << *mp[2] << endl;
+
+    return 0;
+}
+
+
+
+
+DEAL WITH OBJECTS
+
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+class MyClass {
+public:
+    int value;
+
+    MyClass(int val) : value(val) {}
+
+    // Custom comparator function for comparing MyClass objects
+    static bool Compare(const MyClass* a, const MyClass* b) {
+        return a->value < b->value;
+    }
+};
+
+int main() {
+    priority_queue<MyClass*, vector<MyClass*>, bool(*)(const MyClass*, const MyClass*)> pq(MyClass::Compare);
+
+    MyClass obj1(10);
+    MyClass obj2(5);
+    MyClass obj3(20);
+
+    pq.push(&obj1);
+    pq.push(&obj2);
+    pq.push(&obj3);
+
+    while (!pq.empty()) {
+        cout << pq.top()->value << " ";
+        pq.pop();
+    }
+
+    return 0;
+}
+
+
+*/

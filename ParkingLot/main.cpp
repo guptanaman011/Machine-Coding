@@ -1,12 +1,12 @@
- /*
- Requirements
-    - Multilevel Parking lot
-    - Multiple category of parking space
-    - Multiple entry and exit (adds an interesting case of concurrency)
-    - Should not allow more vehicles than allocated space for each category
-    - Charge should be hourly basis
-    - Display each number of parking for each category at entry itself
- */
+    /*
+    Requirements
+        - Multilevel Parking lot
+        - Multiple category of parking space
+        - Multiple entry and exit (adds an interesting case of concurrency)
+        - Should not allow more vehicles than allocated space for each category
+        - Charge should be hourly basis
+        - Display each number of parking for each category at entry itself
+    */
 
  #include<iostream>
  #include <bits/stdc++.h>
@@ -45,7 +45,7 @@ class Vehicle {
     VehicleCategory vehicleCategory;
     public:
         Vehicle() {}
-        Vehicle(string vehicleNumber, VehicleCategory vehicleCategory){
+        Vehicle(string vehicleNumber, VehicleCategory vehicleCategory) {
             this->vehicleNumber = vehicleNumber;
             this->vehicleCategory = vehicleCategory;
         }
